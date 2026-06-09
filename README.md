@@ -41,7 +41,19 @@ Starter frontend routes:
 /dashboard/customer Customer dashboard placeholder
 /dashboard/officer  Officer dashboard placeholder
 /dashboard/admin    Admin dashboard placeholder
+/applications/new   Customer loan application form
+/applications/documents Customer document upload page
 ```
+
+Frontend auth proxy:
+
+```text
+SAJILO_API_BASE_URL=http://127.0.0.1:8000
+```
+
+The frontend login and register pages call Next.js API routes under `/api/auth/*`.
+Those route handlers forward requests to FastAPI and store the JWT in an HTTP-only
+cookie.
 
 ## Backend Setup
 ```bash
@@ -62,6 +74,37 @@ FastAPI docs will be available at:
 
 ```text
 http://localhost:8000/docs
+```
+
+Health check:
+
+```text
+GET http://localhost:8000/health
+```
+
+Auth endpoints:
+
+```text
+POST http://localhost:8000/auth/register
+POST http://localhost:8000/auth/login
+GET  http://localhost:8000/auth/me
+```
+
+Customer application endpoints:
+
+```text
+POST http://localhost:8000/applications
+GET  http://localhost:8000/applications/my
+GET  http://localhost:8000/applications/{application_id}
+POST http://localhost:8000/applications/{application_id}/submit
+POST http://localhost:8000/applications/{application_id}/documents
+```
+
+Document upload uses multipart form data with one file per request:
+
+```text
+document_type=citizenship_document | salary_slip | bank_statement | supporting_document
+file=<PDF, JPEG, PNG, or WebP file>
 ```
 
 ## Current Status

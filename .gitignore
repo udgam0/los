@@ -10,6 +10,8 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+uploads/
+backend/uploads/
 
 # Environment files
 .env
@@ -19,4 +21,3 @@ venv/
 # Local files
 .DS_Store
 Thumbs.db
-

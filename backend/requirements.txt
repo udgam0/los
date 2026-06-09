@@ -2,10 +2,11 @@ fastapi
 uvicorn[standard]
 pydantic
 pydantic-settings
+email-validator
 motor
 python-jose[cryptography]
 passlib[bcrypt]
+bcrypt==4.0.1
 python-multipart
 pytesseract
 Pillow
-

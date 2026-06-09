@@ -11,7 +11,7 @@ type Action = {
 type DashboardPlaceholderProps = {
   role: string;
   title: string;
-  description: string;
+  description?: string;
   stats: Stat[];
   actions: Action[];
 };
@@ -30,7 +30,9 @@ export function DashboardPlaceholder({
           {role} dashboard
         </p>
         <h1 className="text-3xl font-bold text-slate-950 sm:text-4xl">{title}</h1>
-        <p className="max-w-3xl text-base leading-7 text-slate-700">{description}</p>
+        {description ? (
+          <p className="max-w-3xl text-base leading-7 text-slate-700">{description}</p>
+        ) : null}
       </div>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -53,4 +55,3 @@ export function DashboardPlaceholder({
     </section>
   );
 }
-
