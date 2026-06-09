@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+motor
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
+pytesseract
+Pillow
+
